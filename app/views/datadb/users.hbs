@@ -1,0 +1,39 @@
+
+<input type="button" value="Назад" onclick="location.href='/'">
+
+<form class="center-div" action="/user" method="POST">
+    <label for="username">Никнейм:</label>
+    <input name="username" value=""/>
+    <label for="password">Пароль:</label>
+    <input name="password" value=""/>
+    <input type="submit" value="Добавить"/><br>
+</form>
+<hr>
+<table class="table-bd">
+    <thead>
+        <tr>
+            {{#each table_head}}
+            <th class="info-table-headers">
+                {{this}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each table_data}}
+        <tr class="info-table-data">
+            <td></td>
+            <td>
+                <form class="center-div" action="/user/update/{{this.id}}" method="POST">
+                    <input name="username" value="{{this.username}}"/>
+                    <input name="password" value="{{this.password}}"/>
+                    <input type="submit" value="Редактировать"/><br>
+                </form>
+            </td>
+            <td>
+                <form action="/user/{{this.id}}" method="GET"><input type="submit" value="Удалить"/></form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,32 @@
+{
+  "name": "node-simple-app",
+  "version": "0.0.0",
+  "description": "Application",
+  "main": "index.js",
+  "author": "",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run serve",
+    "serve": "node app.js",
+    "watch-node": "nodemon app.js",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run watch-node\"",
+    "copy-static-assets": "ts-node copyStaticAssets.ts",
+    "debug": "npm run watch-debug",
+    "serve-debug": "nodemon --inspect app.js",
+    "watch-debug": "concurrently -k -p \"[{name}]\" -n \"Sass,TypeScript,Node\" -c \"yellow.bold,cyan.bold,green.bold\" \"npm run serve-debug\""
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "errorhandler": "^1.5.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^3.1.0",
+    "hbs": "^4.0.6",
+    "mongoose": "^5.7.12"
+  },
+  "devDependencies": {
+    "concurrently": "^4.1.2",
+    "dotenv": "^8.1.0",
+    "node-sass": "^4.12.0",
+    "nodemon": "^1.19.1"
+  }
+}

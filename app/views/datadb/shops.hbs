@@ -1,0 +1,41 @@
+
+<input type="button" value="Назад" onclick="location.href='/'">
+
+<form class="center-div" action="/shop" method="POST">
+    <label for="name">Наименование</label>
+    <input name="name" value=""/>
+    <label for="address">Адрес</label>
+    <input name="address" value=""/>
+    <input type="submit" value="Добавить"/><br>
+</form>
+
+<hr>
+
+<table class="table-bd">
+    <thead>
+        <tr>
+            {{#each table_head}}
+            <th class="info-table-headers">
+                {{this}}
+            </th>
+            {{/each}}
+        </tr>
+    </thead>
+    <tbody>
+        {{#each table_data}}
+        <tr class="info-table-data">
+            <td></td>
+            <td>
+                <form class="center-div" action="/shop/update/{{this.id}}" method="POST">
+                    <input name="name" value="{{this.name}}"/>
+                    <input name="address" value="{{this.address}}"/>
+                    <input type="submit" value="Редактировать"/><br>
+                </form>
+            </td>
+            <td>
+                <form action="/shop/{{this.id}}" method="GET"><input type="submit" value="Удалить"/></form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>
